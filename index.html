@@ -1,80 +1,129 @@
-```html
 <!DOCTYPE html>
 <html lang="ta">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>நமது பாரம்பரியமும் வாழ்க்கையின் மூன்று நிலைகளும்: ரோகி, போகி, யோகி - Y2Z Life Systems</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* * =========================================
+         * ADVANCED CSS: :root VARIABLES
+         * Centralized theme colors and styles
+         * =========================================
+        */
+        :root {
+            --font-tamil: 'Noto Sans Tamil', sans-serif;
+            
+            /* Keyword Colors */
+            --color-rogi: #e67e22; /* Carrot Orange */
+            --color-bhogi: #27ae60; /* Nephritis Green */
+            --color-yogi: #8e44ad; /* Wisteria Purple */
+            
+            /* Theme & Text Colors */
+            --color-concept: #2980b9; /* Belize Hole Blue */
+            --color-swap-title: #c0392b; /* Pomegranate Red */
+            --color-benefit: #16a085; /* Green Sea */
+            --color-primary-dark: #2c3e50; /* Dark Blue for Footer/Headings */
+            --color-text: #34495e; /* Darker blue-grey text */
+            --color-text-light: #7f8c8d; /* Lighter text for sub-info */
+            --color-bg: #eef2f7; /* Light blue-grey background */
+            --color-bg-card: #ffffff; /* Card background */
+            
+            /* UI Elements */
+            --shadow-light: 0 4px 8px rgba(0,0,0,0.05);
+            --shadow-medium: 0 6px 15px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+            --transition-smooth: all 0.3s ease;
+        }
+
         /* CSS Keyword Colors */
-        .rogi { color: #e67e22; font-weight: 700; } /* Carrot Orange */
-        .bhogi { color: #27ae60; font-weight: 700; } /* Nephritis Green */
-        .yogi { color: #8e44ad; font-weight: 700; } /* Wisteria Purple */
-        .concept { color: #2980b9; font-weight: 700; } /* Belize Hole Blue */
-        .swap-title { color: #c0392b; font-weight: 700; } /* Pomegranate Red */
-        .benefit { color: #16a085; font-weight: 700; } /* Green Sea */
+        .rogi { color: var(--color-rogi); font-weight: 700; }
+        .bhogi { color: var(--color-bhogi); font-weight: 700; }
+        .yogi { color: var(--color-yogi); font-weight: 700; }
+        .concept { color: var(--color-concept); font-weight: 700; }
+        .swap-title { color: var(--color-swap-title); font-weight: 700; }
+        .benefit { color: var(--color-benefit); font-weight: 700; }
 
         /* General Body Styles */
         body {
-            font-family: 'Noto Sans Tamil', sans-serif;
+            font-family: var(--font-tamil);
             line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #eef2f7; /* Light blue-grey background */
-            color: #34495e; /* Darker blue-grey text */
+            background-color: var(--color-bg);
+            color: var(--color-text);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased; /* Smoother fonts */
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Header and Banner */
         header {
             text-align: center;
-            padding: 0 0 10px; /* Remove top padding, banner is flush */
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            padding: 0 0 10px;
+            background-color: var(--color-bg-card);
+            box-shadow: var(--shadow-light);
         }
         .banner-img {
             width: 100%;
             height: auto;
-            max-height: 300px;
+            max-height: 350px; /* Increased max-height slightly */
             object-fit: cover;
+            object-position: center; /* Ensures image is centered */
             display: block;
         }
         h1 {
-            color: #2c3e50;
-            font-size: 2em; /* Adjusted for mobile */
+            color: var(--color-primary-dark);
+            font-size: 2em;
             margin: 20px 0 10px;
             padding: 0 15px;
+            font-weight: 700;
         }
 
         /* Main Content Container */
         .container {
             max-width: 850px;
             margin: 30px auto;
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            padding: 30px 40px; /* More horizontal padding */
+            background-color: var(--color-bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
         }
 
         /* Section Headings */
         h2 {
-            color: #2980b9;
+            color: var(--color-concept);
             font-size: 1.8em;
             margin-top: 40px;
+            margin-bottom: 20px; /* Added margin-bottom */
             padding-bottom: 8px;
-            border-bottom: 3px solid #3498db;
             position: relative;
             display: flex;
             align-items: center;
         }
-        h2 .emoji { /* Class for emoji in heading */
-            font-size: 1.2em;
-            margin-right: 10px;
+        
+        /* * =========================================
+         * ADVANCED CSS: ::after Pseudo-element
+         * Creates a modern, gradient underline
+         * =========================================
+        */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-concept), var(--color-benefit));
+            border-radius: 2px;
+        }
+        h2 .emoji {
+            font-size: 1.1em;
+            margin-right: 12px;
             display: inline-block;
         }
         h3 {
-            color: #16a085; /* Teal color for subheadings */
+            color: var(--color-benefit);
             font-size: 1.4em;
             margin-top: 25px;
             font-weight: 700;
@@ -98,7 +147,7 @@
         /* Improved Smart Swap Example Card */
         .smart-swap-example {
             background-color: #f8fcfd;
-            padding: 15px;
+            padding: 20px; /* Increased padding */
             border: 1px solid #d0e4f1;
             border-radius: 8px;
             margin-top: 15px;
@@ -107,31 +156,33 @@
             align-items: center;
             justify-content: space-between;
             font-size: 1em;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            flex-wrap: nowrap; /* Keep on one line on desktop */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-wrap: nowrap;
         }
         .smart-swap-example:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.07);
+            box-shadow: 0 5px 12px rgba(41,128,185,0.1); /* Color-matched shadow */
         }
-        .swap-text { /* Container for text parts */
+        .swap-text {
             flex-basis: 45%;
             flex-grow: 1;
         }
         .swap-text:last-of-type {
-            text-align: left; /* Default left align */
+            text-align: left;
+            font-weight: 500; /* Emphasize the good swap */
         }
         .smart-swap-arrow {
             font-size: 1.8em;
-            color: #27ae60; /* Green arrow */
-            margin: 0 15px;
-            flex-shrink: 0; /* Prevent arrow from shrinking */
+            font-weight: 700; /* Bolder arrow */
+            color: var(--color-bhogi);
+            margin: 0 20px; /* More space for arrow */
+            flex-shrink: 0;
         }
 
         /* NEW STYLES FOR MILLET SECTION */
         .millet-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
             padding: 0;
             margin-top: 20px;
@@ -139,19 +190,25 @@
         .millet-item {
             background-color: #fdfef8;
             border: 1px solid #e0e0d1;
-            border-left: 5px solid #e67e22; /* Orange accent */
-            padding: 12px;
+            border-left: 5px solid var(--color-rogi); /* Use variable */
+            padding: 12px 15px; /* Adjusted padding */
             border-radius: 6px;
             font-size: 0.95em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.04);
             margin: 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Added transition */
+        }
+        /* Added hover effect for millets */
+        .millet-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
         }
         .millet-item strong {
-            color: #34495e;
+            color: var(--color-text);
             font-weight: 700;
         }
         .millet-item span {
-            color: #7f8c8d;
+            color: var(--color-text-light);
             font-size: 0.9em;
             display: block;
         }
@@ -162,15 +219,15 @@
         }
         .benefits-list li {
             position: relative;
-            padding-left: 35px; /* Space for custom bullet */
+            padding-left: 35px;
             margin-bottom: 12px;
             font-size: 1em;
         }
         .benefits-list li::before {
-            content: '✅'; /* Checkmark emoji */
+            content: '✅';
             position: absolute;
             left: 0;
-            top: 0px;
+            top: 2px; /* Slightly adjusted for better vertical alignment */
             font-size: 1.1em;
         }
         /* END OF NEW STYLES */
@@ -180,12 +237,13 @@
             text-align: center;
             padding: 30px 20px;
             margin-top: 50px;
-            background-color: #2c3e50;
+            background-color: var(--color-primary-dark);
             color: #ecf0f1;
             font-size: 0.9em;
         }
         footer p {
             margin: 8px 0;
+            text-align: center; /* Ensure footer text is centered */
         }
         footer .disclaimer {
             font-size: 0.8em;
@@ -195,30 +253,40 @@
         }
 
         /* * =========================================
-         * MOBILE FRIENDLY RESPONSIVE ADJUSTMENTS 
+         * MOBILE FRIENDLY RESPONSIVE ADJUSTMENTS
          * =========================================
         */
 
         /* For Tablets and larger phones */
         @media (max-width: 768px) {
+            .container {
+                padding: 20px; /* Adjust padding for tablets */
+            }
             .smart-swap-example {
-                flex-direction: column; /* Stack swap items vertically */
-                align-items: flex-start; /* Align to the start */
+                flex-direction: column;
+                align-items: flex-start;
             }
             .swap-text {
-                flex-basis: 100%; /* Full width */
+                flex-basis: 100%;
                 width: 100%;
             }
+            .swap-text:last-of-type {
+                text-align: left; /* Ensure left-align on stack */
+            }
             .smart-swap-arrow {
-                margin: 10px 0; /* Add vertical space */
-                align-self: center; /* Center the arrow */
+                margin: 10px 0;
+                align-self: center;
+            }
+            /* Improved Readability on Tablets */
+            p {
+                text-align: left; 
             }
         }
 
         /* For smaller mobile phones */
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.5em; /* Smaller h1 for small phones */
+                font-size: 1.5em;
                 margin-top: 15px;
             }
             h2 {
@@ -229,15 +297,16 @@
                 font-size: 1.2em;
             }
             .container {
-                margin: 15px; /* Less margin on sides */
-                padding: 15px; /* Less padding inside */
+                margin: 15px;
+                padding: 15px;
+                box-shadow: var(--shadow-light); /* Lighter shadow on mobile */
             }
             .smart-swap-example {
-                font-size: 0.9em; /* Smaller text in cards */
+                font-size: 0.9em;
                 padding: 12px;
             }
-            p {
-                text-align: left; /* Justify can be hard to read on small screens */
+            .smart-swap-arrow {
+                margin: 8px 0;
             }
             footer {
                 padding: 20px 15px;
@@ -248,6 +317,7 @@
             }
             .benefits-list li {
                 font-size: 0.95em;
+                padding-left: 30px; /* Smaller padding for bullet */
             }
         }
     </style>
@@ -255,7 +325,7 @@
 <body>
 
     <header>
-        <img src="banner.png" alt="Y2Z Life Systems Banner" class="banner-img">
+        <img src="banner.png" alt="Y2Z Life Systems - Rogi Bhogi Yogi Banner" class="banner-img">
         <h1>நமது பாரம்பரியமும் வாழ்க்கையின் மூன்று நிலைகளும்: <span class="rogi">ரோகி</span>, <span class="bhogi">போகி</span>, <span class="yogi">யோகி</span></h1>
     </header>
 
@@ -337,7 +407,7 @@
         <p>இதுவே பயணத்தின் உன்னதமான நிலை. '<span class="yogi">யோகி</span>' என்றால் 'ஆண்டவன்' என்று பொருள் அல்ல; '<span class="concept">தன்னைக் கட்டுப்படுத்தத் தெரிந்தவர்' அல்லது 'சமநிலையில் இருப்பவர்' (The Master)</span> என்று பொருள்.</p>
         <p><strong>பாரம்பரியக் கண்ணோட்டம்:</strong> இது '<span class="concept">சத்வ' (Sattva) குணம்</span> மேலோங்கும் நிலை. இங்கு ஒருவர் இன்பம், துன்பம், பாராட்டு, அவமானம் என எதற்கும் எளிதில் அசைந்து கொடுக்க மாட்டார். <span class="yogi">மன சமநிலை (Mental Balance)</span> மற்றும் <span class="yogi">சுய கட்டுப்பாடு (Self-Control)</span> இருக்கும்.</p>
         <p><strong>'யோகி' நிலையிலும் பல படிகள்:</strong> உதாரணமாக, 'Y-Level 1' என்பது ஒரு பண்டிகை நாளுக்கு முன்பே, 'இதை மட்டும் தான் சாப்பிடுவேன்' என்று திட்டமிடுவது. 'Y-Level 2' என்பது அந்தத் திட்டத்தை அந்தச் சூழ்நிலையிலும் வெற்றிகரமாகச் செயல்படுத்துவது. இதுவே <span class="yogi">மன உறுதியைப் (Resilience)</span> பெறுவதாகும்.</p>
-        <p><strong>'யோகி' நிலைக்கான சில '<span class="concept">ஸ்மார்ட் ஸ்வாப்</span>' உதாரணங்கள்:</strong></p>
+        <p><strong>'யோகி' நிலைக்கான சில '<span class="concept">ஸ்மார்ட் ஸ்வாப்</span>' (Smart Swap) உதாரணங்கள்:</strong></p>
         <ul>
             <li class="smart-swap-example">
                 <span class="swap-text"><span class="swap-title">ஸ்வாப் 1 (குடல்):</span> கடையில் வாங்கும் தயிர்</span>
@@ -368,4 +438,3 @@
 
 </body>
 </html>
-```
